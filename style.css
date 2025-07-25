@@ -1,0 +1,134 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #282c34; /* Dark background */
+    color: #e0e0e0;
+    margin: 0;
+}
+
+.game-container {
+    background-color: #3a404a; /* Slightly lighter dark for container */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+h1 {
+    color: #61dafb; /* Accent color for title */
+    margin-bottom: 20px;
+}
+
+.game-status {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #a0a0a0;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    margin: 0 auto 30px auto;
+    width: 320px; /* 3*100px + 2*10px */
+    height: 320px;
+    background-color: #444c56; /* Board background */
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #555c66; /* Cell background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5em;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+    color: #fff; /* Default text color for X/O */
+}
+
+.cell:hover {
+    background-color: #666e7a;
+    transform: scale(1.02);
+}
+
+.cell.X {
+    color: #ff6b6b; /* Red for X */
+}
+
+.cell.O {
+    color: #4ecdc4; /* Cyan for O */
+}
+
+.cell.winning {
+    background-color: #34a853; /* Green for winning cells */
+    animation: pulse 0.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        box-shadow: 0 0 0px #34a853;
+    }
+    to {
+        box-shadow: 0 0 15px #34a853;
+    }
+}
+
+
+button {
+    padding: 12px 25px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    background-color: #61dafb; /* Accent color for button */
+    color: #282c34;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background-color: #4fa3d7;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 400px) {
+    .game-board {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+        width: 260px;
+        height: 260px;
+    }
+    .cell {
+        width: 80px;
+        height: 80px;
+        font-size: 3em;
+    }
+    .game-container {
+        padding: 20px;
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    .game-status {
+        font-size: 1.2em;
+    }
+    button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}
